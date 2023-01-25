@@ -1,0 +1,44 @@
+version: '3'
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:5.0
+    ports:
+      - "27018:27017"
+    env_file:
+      - .env    
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - /mnt/db:/data/db
+    networks:
+      - mongo-net
+      - host
+
+  user-service:
+    container_name: users
+    image: users
+    build:
+      context: ./Users
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    networks:
+      -  mongo-net
+    env_file:
+      - .env  
+    volumes:
+      - type: bind
+        source: ./Users
+        target: /app
+    working_dir: /app
+
+   
+    
+networks:
+  mongo-net:
+  host:

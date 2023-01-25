@@ -3,7 +3,7 @@
 **/node_modules
 **/data
 .vscode
-
+data
 **/__pycache__
 
 *.tfstate
