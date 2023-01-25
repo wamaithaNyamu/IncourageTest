@@ -17,7 +17,7 @@ resource "linode_instance" "example" {
   image      = "linode/ubuntu20.04"
   type       = "g6-nanode-1"
   region     = "us-east"
-  label      = "Microservice-blog"
+  label      = "Incourage-test"
   private_ip = true
   root_pass  = var.root_pass
 }
