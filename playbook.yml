@@ -1,0 +1,55 @@
+---
+- name: Connect to linode and install dependencies and run docker-compose
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+     
+        state: latest
+        update_cache: true
+
+    - name: Install Docker
+      become: true
+      apt:
+        name: docker.io
+        state: present
+    - name: Install Docker Compose
+      pip:
+        name: docker-compose
+      tags:
+        - docker
+
+    - name: Install Python
+      apt:
+        name: python3
+        state: present
+      tags:
+        - python
+  
+    - name: Synchronize src and dest, excluding node_modules subfolders
+      ansible.builtin.synchronize:
+        src: .
+        dest: /home
+        rsync_opts:
+          - "--exclude=**/node_modules"
+          - "--exclude=**/data"
+
+    - name: Copy env
+      copy:
+            src:   ".env"
+            dest: /home/.env
+
+    - name: Run Docker Compose Build and run image
+      command: docker-compose -f /home/docker-compose.yml up --force-recreate --build -d
+      tags:
+        - docker

@@ -15,9 +15,8 @@ services:
       - /mnt/data/db:/data/db
     networks:
       - mongo-net
-      - host
 
-  user-service:
+  users:
     container_name: users
     image: users
     build:
@@ -33,7 +32,7 @@ services:
       - .env  
 
   
-  policies-service:
+  policies:
     container_name: policies
     image: policies
     build:
@@ -48,7 +47,34 @@ services:
     env_file:
       - .env  
 
+  claims:
+    container_name: claims
+    image: claims
+    build:
+      context: ./Claims
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    depends_on:
+      - mongo
+    networks:
+      - mongo-net
+    env_file:
+      - .env  
   
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - users
+      - policies
+      - claims
+    networks:
+      - mongo-net
 
 networks:
   mongo-net:

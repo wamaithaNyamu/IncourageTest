@@ -10,7 +10,7 @@ RUN npm install -g nodemon
 
 # Bundle app source
 COPY . .
-EXPOSE 5000
+EXPOSE 5002
 
 
 CMD [ "nodemon", "server.js" ]
