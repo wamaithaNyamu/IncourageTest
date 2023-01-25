@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "jest": "^29.4.0"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.61.0"
+  }
+}

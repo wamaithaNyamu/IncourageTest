@@ -32,6 +32,23 @@ services:
     env_file:
       - .env  
 
+  
+  policies-service:
+    container_name: policies
+    image: policies
+    build:
+      context: ./Policies
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mongo
+    networks:
+      - mongo-net
+    env_file:
+      - .env  
+
+  
 
 networks:
   mongo-net:

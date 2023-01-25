@@ -37,7 +37,27 @@ services:
         target: /app
     working_dir: /app
 
-   
+  
+  policies-service:
+    container_name: policies
+    image: policies
+    build:
+      context: ./Policies
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mongo
+    networks:
+      - mongo-net
+    env_file:
+      - .env  
+    volumes:
+      - type: bind
+        source: ./Policies
+        target: /app
+    working_dir: /app
+
     
 networks:
   mongo-net:
