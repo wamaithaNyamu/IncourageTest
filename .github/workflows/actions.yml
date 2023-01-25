@@ -34,7 +34,7 @@ jobs:
            echo MONGO_INITDB_DATABASE="${{secrets.MONGO_INITDB_DATABASE}}" >> .env
            echo MONGO_INITDB_ROOT_PASSWORD="${{secrets.MONGO_INITDB_ROOT_PASSWORD}}" >> .env
            echo MONGO_INITDB_ROOT_USERNAME="${{secrets.MONGO_INITDB_ROOT_USERNAME}}" >> .env
-           echo CLAIMS_SERVICE_PORT="${{CLAIMS_SERVICE_PORT}}" >> .env
-           echo POLICIES_SERVICE_PORT="${{POLICIES_SERVICE_PORT}}" >> .env
-           echo USERS_SERVICE_PORT="${{USERS_SERVICE_PORT}}" >> .env
+           echo CLAIMS_SERVICE_PORT="${{secrets.CLAIMS_SERVICE_PORT}}" >> .env
+           echo POLICIES_SERVICE_PORT="${{secrets.POLICIES_SERVICE_PORT}}" >> .env
+           echo USERS_SERVICE_PORT="${{secrets.USERS_SERVICE_PORT}}" >> .env
            ansible-playbook playbook.yml -u root --private-key="${{ secrets.SSH_PRIVATE_KEY }}" -i inventory.ini -vvv 
