@@ -33,6 +33,11 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    Policy_ID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Policies"
+    },
+
 },
     {
         timestamps: true,
