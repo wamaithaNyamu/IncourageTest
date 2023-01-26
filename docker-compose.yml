@@ -39,7 +39,7 @@ services:
       context: ./Telegram
       dockerfile: Dockerfile
     ports:
-      - "5004:5004"
+      - "7004:7004"
     depends_on:
       - mongo
       - backend
