@@ -64,19 +64,7 @@ services:
     env_file:
       - .env 
 
-  # nginx:
-  #   container_name: nginx
-  #   image: nginx
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-  #   depends_on:
-  #     - users
-  #     - policies
-  #     - claims
-  #   networks:
-  #     - mongo-net
+
 
 networks:
   mongo-net:
