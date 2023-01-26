@@ -53,7 +53,6 @@ are pushed to the code repository.
 </div>
 
 ### Built With
-To ensure you gain the most out of this session please make sure you have the following installed:
 
 - [Node js](https://nodejs.org/en/download/)
 
