@@ -68,9 +68,9 @@
     - name: Copy env
       copy:
             src:   ".env"
-            dest: /home/.env
+            dest: /home/IncourageTest/.env
 
     - name: Run Docker Compose Build and run image
-      command: docker-compose -f /home/docker-compose.yml up --force-recreate --build -d
+      command: docker-compose -f /home/IncourageTest/docker-compose.yml up --force-recreate --build -d
       tags:
         - docker
