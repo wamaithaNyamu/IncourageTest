@@ -34,6 +34,6 @@ docker-compose --file docker-compose.dev.yml down
 docker-compose --file docker-compose.dev.yml build
 
 # start docker-compose
-docker-compose --file docker-compose.dev.yml up -d
+docker-compose --file docker-compose.dev.yml up 
 # logs for service
-docker-compose --file docker-compose.dev.yml logs -f claims
+# docker-compose --file docker-compose.dev.yml logs -f telegram

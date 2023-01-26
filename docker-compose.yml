@@ -16,14 +16,14 @@ services:
     networks:
       - mongo-net
 
-  users:
-    container_name: users
-    image: users
+  backend:
+    container_name: backend
+    image: backend
     build:
-      context: ./Users
+      context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "7000:7000"
     depends_on:
       - mongo
     networks:
@@ -31,50 +31,52 @@ services:
     env_file:
       - .env  
 
-  
-  policies:
-    container_name: policies
-    image: policies
-    build:
-      context: ./Policies
-      dockerfile: Dockerfile
-    ports:
-      - "5001:5001"
-    depends_on:
-      - mongo
-    networks:
-      - mongo-net
-    env_file:
-      - .env  
 
-  claims:
-    container_name: claims
-    image: claims
+  telegram:
+    container_name: telegram
+    image: telegram
     build:
-      context: ./Claims
+      context: ./Telegram
       dockerfile: Dockerfile
     ports:
-      - "5002:5002"
+      - "5004:5004"
     depends_on:
       - mongo
+      - backend
     networks:
       - mongo-net
     env_file:
-      - .env  
-  
-  nginx:
-    container_name: nginx
-    image: nginx
+      - .env 
+
+  ussd:
+    container_name: ussd
+    image: ussd
+    build:
+      context: ./USSD
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - "8080:8080"
     depends_on:
-      - users
-      - policies
-      - claims
+      - mongo
+      - backend
     networks:
       - mongo-net
+    env_file:
+      - .env 
+
+  # nginx:
+  #   container_name: nginx
+  #   image: nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  #   depends_on:
+  #     - users
+  #     - policies
+  #     - claims
+  #   networks:
+  #     - mongo-net
 
 networks:
   mongo-net:
