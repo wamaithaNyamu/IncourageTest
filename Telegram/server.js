@@ -163,6 +163,10 @@ app.post(webhookURI, async (req, res) => {
 })
 
 
+app.get('/', (req, res) => {
+  res.send('Telegram Server running')
+})
+
 
 app.listen(port, async () => {
   console.log(`Telegram Server running on port ${port}`)
