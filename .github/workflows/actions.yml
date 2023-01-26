@@ -36,6 +36,7 @@ jobs:
            echo MONGO_INITDB_ROOT_USERNAME="${{secrets.MONGO_INITDB_ROOT_USERNAME}}" >> .env
            echo AFRICAS_TALKING_API_KEY="${{secrets.AFRICAS_TALKING_API_KEY}}" >> .env
            echo CLAIMS_URL="${{secrets.CLAIMS_URL}}" >> .env
+           echo USERS_URL="${{secrets.USERS_URL}}" >> .env
            echo BACKEND_SERVICE_PORT="${{secrets.BACKEND_SERVICE_PORT}}" >> .env
            echo TELEGRAM_SERVICE_PORT="${{secrets.TELEGRAM_SERVICE_PORT}}" >> .env
            echo TELEGRAM_API="${{secrets.TELEGRAM_API}}" >> .env
