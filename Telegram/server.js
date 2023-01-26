@@ -14,7 +14,7 @@ import express from 'express'
 const token = process.env.TELEGRAM_API;
 const callbackUrl = process.env.CALLBACK_URL;
 const claimsURL = process.env.CLAIMS_URL
-const usersURL = process.url.USERS_URL
+const usersURL = process.env.USERS_URL
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
