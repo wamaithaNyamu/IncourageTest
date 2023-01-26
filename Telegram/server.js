@@ -13,7 +13,7 @@ import express from 'express'
 
 const token = process.env.TELEGRAM_API;
 const callbackUrl = process.env.CALLBACK_URL;
-
+const claimsURL = process.env.CLAIMS_URL
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -28,7 +28,6 @@ const port = process.env.TELEGRAM_SERVICE_PORT
 const TELEGRAM_API = `https://api.telegram.org/bot${token}`
 const webhookURI = `/webhook/${token}`
 const webhookURL = `${callbackUrl}${webhookURI}`
-const claimsURL = "http://backend:7000/api/claims/"
 const usersURL = "http://backend:7000/api/users/"
 
 function extractPhoneNumber(sentence) {

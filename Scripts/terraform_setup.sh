@@ -64,7 +64,7 @@ echo "----------------------- Saving IP Addresses -----------------------"
 touch inventory.ini
 echo $ip > inventory.ini
 
-
+## the ssh pass needs to be installed on the machine
 while read line; 
 do 
     echo "----------------Copying ssh keys to server id -> $line----------------"; 

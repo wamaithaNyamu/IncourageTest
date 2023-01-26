@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-const claimsURL = "http://backend:7000/api/claims/"
+const claimsURL = process.env.CLAIMS_URL
 
 app.post('/ussd',async (req, res) => {
     // Read the variables sent via POST from our API
