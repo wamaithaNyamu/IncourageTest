@@ -1,3 +1,7 @@
+
+
+
+
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -27,9 +31,10 @@
 
 
 <!-- PROJECT LOGO -->
-[![Product Name Screen Shot][product-screenshot]]
+
 <div>
 <h3 align="center">Incourage Software Engineer Interview Test</h3>
+<video src="https://user-images.githubusercontent.com/28855068/214912585-043f6f2f-651a-48dd-9d56-4ad3924e3451.mp4" > </video>
 <h4>Exercise</h4>
   <p align="center">
    
@@ -200,5 +205,5 @@ Project Link: [https://github.com/wamaithaNyamu/IncourageTest.git](https://githu
 [license-url]: https://github.com/wamaithaNyamu/IncourageTest.git/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/wamaithanyamu
-[product-screenshot]: Images/daraja.png
+
 
